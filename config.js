@@ -8,7 +8,7 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 1. BRANDING & UI SETTINGS
     // ------------------------------------------------------------------------
-    botName: "Nexus AI Assistant",
+    botName: "Typing Tutor Chatbot",
     botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
     botAvatar: "🤖",
     userAvatar: "🧑‍💻",
