@@ -1,6 +1,8 @@
+
 /**
  * ============================================================================
  * ADMIN CONFIGURATION FILE (config.js)
+ * TYPING TUTOR AI CHATBOT
  * ============================================================================
  */
 
@@ -8,52 +10,69 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 1. BRANDING & UI SETTINGS
     // ------------------------------------------------------------------------
-    botName: "Nexus AI Assistant",
-    botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
-    botAvatar: "🤖",
+
+    botName: "Typing Tutor AI",
+    botSubtitle: "Your Personal AI Typing Teacher",
+    botAvatar: "⌨️",
     userAvatar: "🧑‍💻",
-    welcomeHeading: "Hello! How can I help you today?",
-    welcomeSubtext: "Select a starter prompt below or type your own question to begin.",
+
+    welcomeHeading: "Hello! Ready to Improve Your Typing Skills?",
+    welcomeSubtext: "Learn touch typing, improve your speed, and become a faster and more accurate typist with AI.",
 
     introCards: [
         {
-            icon: "📚",
-            title: "Explain a Concept",
-            description: "Break down complex topics into simple, everyday terms.",
-            prompt: "Can you explain how artificial intelligence works in simple terms?"
+            icon: "⌨️",
+            title: "Learn Typing Basics",
+            description: "Learn the correct finger positions and keyboard techniques.",
+            prompt: "Teach me the basics of typing for beginners."
         },
         {
             icon: "⚡",
-            title: "Check Knowledge Base",
-            description: "Ask questions about our custom internal documents.",
-            prompt: "What information do you have in your official knowledge base?"
+            title: "Improve Typing Speed",
+            description: "Get tips and exercises to increase your typing speed.",
+            prompt: "How can I improve my typing speed and reach 60 WPM?"
+        },
+        {
+            icon: "🎯",
+            title: "Typing Accuracy",
+            description: "Learn how to reduce typing mistakes and improve accuracy.",
+            prompt: "Give me tips to improve my typing accuracy."
+        },
+        {
+            icon: "📝",
+            title: "Typing Practice",
+            description: "Practice typing with sentences and personalized exercises.",
+            prompt: "Give me a beginner typing practice exercise."
+        },
+        {
+            icon: "📊",
+            title: "Typing Test",
+            description: "Take a typing test and learn how to evaluate your results.",
+            prompt: "Give me a one-minute typing test."
         },
         {
             icon: "💡",
-            title: "Brainstorm Ideas",
-            description: "Generate creative project ideas and structured outlines.",
-            prompt: "Give me 3 creative science fair project ideas involving robotics."
-        },
-        {
-            icon: "🛠️",
-            title: "Debug & Troubleshoot",
-            description: "Step-by-step assistance for solving technical problems.",
-            prompt: "How should I approach debugging a program that isn't working as expected?"
+            title: "Typing Tips",
+            description: "Discover useful tricks to become a better typist.",
+            prompt: "Give me 5 useful tips for learning touch typing."
         }
     ],
 
     // ------------------------------------------------------------------------
     // 2. SECURITY & ENDPOINT SETTINGS
     // ------------------------------------------------------------------------
-    // PROXY_URL forces the app to route requests through your Netlify backend
-    authMode: "PROXY_URL", 
-    // Replace this with your actual Netlify function URL once deployed
-    proxyEndpoint: "https://your-site.netlify.app/.netlify/functions/gemini-proxy", 
+
+    authMode: "PROXY_URL",
+
+    // Replace with your actual Netlify function URL after deployment
+    proxyEndpoint: "https://your-site.netlify.app/.netlify/functions/gemini-proxy",
+
     modelName: "gemini-3.5-flash-lite",
 
     // ------------------------------------------------------------------------
     // 3. ADVANCED GENERATION PARAMETERS
     // ------------------------------------------------------------------------
+
     generationConfig: {
         temperature: 0.7,
         topP: 0.95,
@@ -64,6 +83,7 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 4. CONVERSATION MEMORY & RAG SETTINGS
     // ------------------------------------------------------------------------
+
     contextWindowLimit: 10,
 
     ragConfig: {
@@ -75,15 +95,88 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 5. SYSTEM PROMPT & GUARDRAILS
     // ------------------------------------------------------------------------
-    systemPrompt: `You are Nexus, a helpful, accurate, and friendly AI assistant created for a school project.
-Follow these core rules at all times:
-1. Tone & Style: Be clear, encouraging, concise, and structured. Use bullet points or bold text for readability.
-2. Grounded Answers: When "[REFERENCE DOCUMENTS]" are provided with the user's message, prioritize those facts above all else.
-3. Honesty: If you do not know the answer, state clearly what you know and do not fabricate facts.
-4. Safety: Refuse to generate harmful, inappropriate, or academic-dishonesty content.`,
 
-    ragInjectionTemplate: `Use the following [REFERENCE DOCUMENTS] to answer the user's question accurately. If the documents are not relevant to the question, rely on your general knowledge without mentioning the documents explicitly.`
+    systemPrompt: `You are Typing Tutor AI, a friendly and professional AI typing teacher.
+
+Your main purpose is to help users improve their keyboard typing skills.
+
+Follow these rules at all times:
+
+1. ROLE:
+You are a personal typing tutor who teaches beginners and advanced typists.
+
+2. TYPING BASICS:
+Teach proper keyboard positioning, home row keys, finger placement, and touch typing techniques.
+
+3. TYPING SPEED:
+Help users understand WPM (Words Per Minute) and provide exercises to increase their typing speed.
+
+4. TYPING ACCURACY:
+Teach users how to reduce mistakes, improve accuracy, and develop consistent typing habits.
+
+5. PRACTICE EXERCISES:
+Generate typing practice exercises based on the user's skill level:
+- Beginner
+- Intermediate
+- Advanced
+
+6. TYPING TEST:
+When users request a typing test:
+- Provide a passage for them to type.
+- Suggest a test duration such as 1, 3, or 5 minutes.
+- Explain how WPM and accuracy are calculated.
+- Do not claim to measure actual typing speed unless typing data is provided.
+
+7. PERSONALIZED LEARNING:
+Adjust explanations and exercises based on the user's experience and goals.
+
+8. FEEDBACK:
+When users submit their typing results or text:
+- Identify typing mistakes.
+- Suggest corrections.
+- Explain how they can improve.
+- Give positive and constructive feedback.
+
+9. TONE & STYLE:
+- Be friendly, patient, encouraging, and supportive.
+- Use simple language that beginners can understand.
+- Use bullet points and numbered steps when helpful.
+- Keep answers clear and organized.
+
+10. LANGUAGE:
+Respond in the language used by the user.
+You can teach typing in English and Indonesian.
+
+11. HONESTY:
+Never invent typing scores or test results.
+Explain when additional information is needed.
+
+12. SAFETY:
+Do not generate harmful, inappropriate, or offensive content.
+
+Your ultimate goal is to help every user become a faster, more accurate, and more confident typist.`,
+
+    // ------------------------------------------------------------------------
+    // 6. RAG INJECTION TEMPLATE
+    // ------------------------------------------------------------------------
+
+    ragInjectionTemplate: `Use the following [REFERENCE DOCUMENTS] as supporting materials when answering questions about typing.
+
+Prioritize relevant reference documents for information about:
+- Keyboard layouts
+- Touch typing techniques
+- Finger positioning
+- Typing speed
+- Typing accuracy
+- Typing exercises
+- Typing tests
+
+If the documents are not relevant to the user's question, use your general knowledge without mentioning the documents explicitly.`
 };
+
+// ------------------------------------------------------------------------
+// 7. FREEZE CONFIGURATION
+// ------------------------------------------------------------------------
 
 Object.freeze(BOT_CONFIG);
 Object.freeze(BOT_CONFIG.generationConfig);
