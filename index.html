@@ -1,75 +1,242 @@
+
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Assistant Template</title>
+
+    <title>Typing Tutor Chatbot</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="app-container">
-        <header class="chat-header">
-            <div class="brand-info">
-                <div class="bot-avatar" id="header-avatar">🤖</div>
-                <div>
-                    <h1 class="bot-title" id="header-title">Loading...</h1>
-                    <p class="bot-subtitle" id="header-subtitle">Initializing AI...</p>
+
+<div class="app-container">
+
+    <!-- HEADER -->
+    <header class="chat-header">
+
+        <div class="brand-info">
+
+            <div class="bot-avatar" id="header-avatar">
+                ⌨️
+            </div>
+
+            <div>
+                <h1 class="bot-title" id="header-title">
+                    Typing Tutor Chatbot
+                </h1>
+
+                <p class="bot-subtitle" id="header-subtitle">
+                    Your Personal Typing Assistant
+                </p>
+            </div>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                id="btn-theme-toggle"
+                class="icon-btn"
+                title="Change Theme"
+                aria-label="Change Theme">
+                ☀️
+            </button>
+
+            <button
+                id="btn-export-chat"
+                class="icon-btn"
+                title="Export Chat"
+                aria-label="Export Chat">
+                💾
+            </button>
+
+            <button
+                id="btn-clear-chat"
+                class="icon-btn"
+                title="Clear Chat"
+                aria-label="Clear Chat">
+                🗑️
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CHAT AREA -->
+    <main class="chat-viewport" id="chat-viewport">
+
+        <!-- WELCOME SCREEN -->
+        <section class="welcome-screen" id="welcome-screen">
+
+            <div class="welcome-hero">
+
+                <div class="hero-avatar" id="hero-avatar">
+                    ⌨️
                 </div>
-            </div>
-            <div class="header-actions">
-                <button id="btn-theme-toggle" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-                    <span id="theme-icon">☀️</span>
-                </button>
-                <button id="btn-export-chat" class="icon-btn" title="Save/Export Chat" aria-label="Export Chat">
-                    💾
-                </button>
-                <button id="btn-clear-chat" class="icon-btn" title="Clear Conversation" aria-label="Clear Chat">
-                    🗑️
-                </button>
-            </div>
-        </header>
 
-        <main class="chat-viewport" id="chat-viewport">
-            <section class="welcome-screen" id="welcome-screen">
-                <div class="welcome-hero">
-                    <div class="hero-avatar" id="hero-avatar">🤖</div>
-                    <h2 id="welcome-heading">Hello! How can I help you today?</h2>
-                    <p id="welcome-subtext">Select a starter prompt below or type your own question to begin.</p>
+                <h2 id="welcome-heading">
+                    Welcome to Typing Tutor!
+                </h2>
+
+                <p id="welcome-subtext">
+                    Hi! I'm your personal typing assistant.
+                    Let's improve your typing speed and accuracy together!
+                </p>
+
+            </div>
+
+
+            <!-- STARTER PROMPTS -->
+            <div class="intro-cards-grid" id="intro-cards-grid">
+
+                <div class="intro-card"
+                     data-prompt="How can I improve my typing speed?">
+
+                    <div class="card-icon">⚡</div>
+
+                    <h3>Typing Speed</h3>
+
+                    <p>
+                        Learn how to increase your typing speed
+                        and improve your WPM.
+                    </p>
+
                 </div>
-                <div class="intro-cards-grid" id="intro-cards-grid"></div>
-            </section>
-            <div class="messages-container" id="messages-container" aria-live="polite"></div>
-        </main>
 
-        <footer class="chat-footer">
-            <form id="chat-form" class="input-wrapper">
-                <textarea 
-                    id="user-input" 
-                    rows="1" 
-                    placeholder="Ask anything... (Shift + Enter for new line)" 
-                    required
-                    aria-label="Chat message input"
-                ></textarea>
-                <button type="submit" id="btn-send" class="send-btn" aria-label="Send Message">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                </button>
-            </form>
-            <div class="footer-credits">
-                <span>Created by <strong>Ramadhirra Azzahra Putri, S.T.</strong></span>
-                <span class="footer-divider">•</span>
-                <span>Powered by Google Gemini API</span>
+
+                <div class="intro-card"
+                     data-prompt="Can you teach me proper finger placement on the keyboard?">
+
+                    <div class="card-icon">⌨️</div>
+
+                    <h3>Finger Placement</h3>
+
+                    <p>
+                        Learn the correct finger positions
+                        on your keyboard.
+                    </p>
+
+                </div>
+
+
+                <div class="intro-card"
+                     data-prompt="How can I improve my typing accuracy?">
+
+                    <div class="card-icon">🎯</div>
+
+                    <h3>Typing Accuracy</h3>
+
+                    <p>
+                        Practice typing correctly
+                        and reduce typing mistakes.
+                    </p>
+
+                </div>
+
+
+                <div class="intro-card"
+                     data-prompt="Give me a beginner typing practice exercise.">
+
+                    <div class="card-icon">📚</div>
+
+                    <h3>Typing Practice</h3>
+
+                    <p>
+                        Get typing exercises and
+                        practice every day.
+                    </p>
+
+                </div>
+
             </div>
-        </footer>
-    </div>
 
-    <script src="config.js"></script>
-    <script src="knowledge.js"></script>
-    <script src="app.js"></script>
+        </section>
+
+
+        <!-- CHAT MESSAGES -->
+        <div
+            class="messages-container"
+            id="messages-container"
+            aria-live="polite">
+        </div>
+
+    </main>
+
+
+    <!-- CHAT FOOTER -->
+    <footer class="chat-footer">
+
+        <form id="chat-form" class="input-wrapper">
+
+            <textarea
+                id="user-input"
+                rows="1"
+                placeholder="Ask me about typing skills..."
+                required
+                aria-label="Type your message">
+            </textarea>
+
+            <button
+                type="submit"
+                id="btn-send"
+                class="send-btn"
+                aria-label="Send Message">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+
+                </svg>
+
+            </button>
+
+        </form>
+
+
+        <div class="footer-credits">
+
+            <span>
+                Typing Tutor Chatbot
+            </span>
+
+            <span class="footer-divider">•</span>
+
+            <span>
+                Powered by Google Gemini AI
+            </span>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- JAVASCRIPT FILES -->
+<script src="config.js"></script>
+<script src="knowledge.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
