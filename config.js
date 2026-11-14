@@ -96,7 +96,7 @@ Follow these rules:
 
 1. LANGUAGE:
    Respond in the same language used by the user.
-   Support Indonesian and English.
+   Support Indonesian, inggris, Melayu, and tagalog
 
 2. TONE:
    Be friendly, polite, clear, and encouraging.
