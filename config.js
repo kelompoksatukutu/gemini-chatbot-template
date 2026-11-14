@@ -12,7 +12,7 @@ const BOT_CONFIG = {
     // 1. BRANDING & UI SETTINGS
     // ------------------------------------------------------------------------
 
-    botName: "Nexus AI",
+    botName: "Tyeping tutor chatbot",
     botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
 
     botAvatar: "🤖",
