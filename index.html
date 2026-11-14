@@ -1,242 +1,146 @@
-
-<!DOCTYPE html>
-<html lang="id" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Typing Tutor Chatbot</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="app-container">
-
-    <!-- HEADER -->
-    <header class="chat-header">
-
-        <div class="brand-info">
-
-            <div class="bot-avatar" id="header-avatar">
-                ⌨️
-            </div>
-
-            <div>
-                <h1 class="bot-title" id="header-title">
-                    Typing Tutor Chatbot
-                </h1>
-
-                <p class="bot-subtitle" id="header-subtitle">
-                    Your Personal Typing Assistant
-                </p>
-            </div>
-
-        </div>
-
-        <div class="header-actions">
-
-            <button
-                id="btn-theme-toggle"
-                class="icon-btn"
-                title="Change Theme"
-                aria-label="Change Theme">
-                ☀️
-            </button>
-
-            <button
-                id="btn-export-chat"
-                class="icon-btn"
-                title="Export Chat"
-                aria-label="Export Chat">
-                💾
-            </button>
-
-            <button
-                id="btn-clear-chat"
-                class="icon-btn"
-                title="Clear Chat"
-                aria-label="Clear Chat">
-                🗑️
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- MAIN CHAT AREA -->
-    <main class="chat-viewport" id="chat-viewport">
-
-        <!-- WELCOME SCREEN -->
-        <section class="welcome-screen" id="welcome-screen">
-
-            <div class="welcome-hero">
-
-                <div class="hero-avatar" id="hero-avatar">
-                    ⌨️
-                </div>
-
-                <h2 id="welcome-heading">
-                    Welcome to Typing Tutor!
-                </h2>
-
-                <p id="welcome-subtext">
-                    Hi! I'm your personal typing assistant.
-                    Let's improve your typing speed and accuracy together!
-                </p>
-
-            </div>
-
-
-            <!-- STARTER PROMPTS -->
-            <div class="intro-cards-grid" id="intro-cards-grid">
-
-                <div class="intro-card"
-                     data-prompt="How can I improve my typing speed?">
-
-                    <div class="card-icon">⚡</div>
-
-                    <h3>Typing Speed</h3>
-
-                    <p>
-                        Learn how to increase your typing speed
-                        and improve your WPM.
-                    </p>
-
-                </div>
-
-
-                <div class="intro-card"
-                     data-prompt="Can you teach me proper finger placement on the keyboard?">
-
-                    <div class="card-icon">⌨️</div>
-
-                    <h3>Finger Placement</h3>
-
-                    <p>
-                        Learn the correct finger positions
-                        on your keyboard.
-                    </p>
-
-                </div>
-
-
-                <div class="intro-card"
-                     data-prompt="How can I improve my typing accuracy?">
-
-                    <div class="card-icon">🎯</div>
-
-                    <h3>Typing Accuracy</h3>
-
-                    <p>
-                        Practice typing correctly
-                        and reduce typing mistakes.
-                    </p>
-
-                </div>
-
-
-                <div class="intro-card"
-                     data-prompt="Give me a beginner typing practice exercise.">
-
-                    <div class="card-icon">📚</div>
-
-                    <h3>Typing Practice</h3>
-
-                    <p>
-                        Get typing exercises and
-                        practice every day.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CHAT MESSAGES -->
-        <div
-            class="messages-container"
-            id="messages-container"
-            aria-live="polite">
-        </div>
-
-    </main>
-
-
-    <!-- CHAT FOOTER -->
-    <footer class="chat-footer">
-
-        <form id="chat-form" class="input-wrapper">
-
-            <textarea
-                id="user-input"
-                rows="1"
-                placeholder="Ask me about typing skills..."
-                required
-                aria-label="Type your message">
-            </textarea>
-
-            <button
-                type="submit"
-                id="btn-send"
-                class="send-btn"
-                aria-label="Send Message">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-
-                </svg>
-
-            </button>
-
-        </form>
-
-
-        <div class="footer-credits">
-
-            <span>
-                Typing Tutor Chatbot
-            </span>
-
-            <span class="footer-divider">•</span>
-
-            <span>
-                Powered by Google Gemini AI
-            </span>
-
-        </div>
-
-    </footer>
-
-</div>
-
-
-<!-- JAVASCRIPT FILES -->
-<script src="config.js"></script>
-<script src="knowledge.js"></script>
-<script src="app.js"></script>
-
-</body>
-</html>
+(() => {
+  const $ = id => document.getElementById(id);
+  const viewport = $("chat-viewport"), welcome = $("welcome-screen"),
+        list = $("messages-container"), form = $("chat-form"),
+        input = $("user-input"), sendBtn = $("btn-send");
+  let history = [];   // {role: "user"|"model", text}
+  let busy = false;
+
+  /* ---------- util ---------- */
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // Markdown ringan: kode, tebal, miring, daftar, paragraf
+  function md(text) {
+    const blocks = [];
+    let t = esc(text).replace(/```([\s\S]*?)```/g, (_, c) => { blocks.push(`<pre><code>${c.trim()}</code></pre>`); return `\u0000${blocks.length - 1}\u0000`; });
+    t = t.replace(/`([^`]+)`/g, "<code>$1</code>")
+         .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+         .replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
+    const out = []; let inList = false;
+    for (const line of t.split("\n")) {
+      const li = line.match(/^\s*[-*]\s+(.*)/);
+      if (li) { if (!inList) { out.push("<ul>"); inList = true; } out.push(`<li>${li[1]}</li>`); continue; }
+      if (inList) { out.push("</ul>"); inList = false; }
+      if (line.trim()) out.push(`<p>${line}</p>`);
+    }
+    if (inList) out.push("</ul>");
+    return out.join("").replace(/\u0000(\d+)\u0000/g, (_, i) => blocks[i]);
+  }
+
+  const save = () => { try { localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(history)); } catch (e) {} };
+  const scrollDown = () => { viewport.scrollTop = viewport.scrollHeight; };
+
+  function addMessage(role, text) {
+    welcome.hidden = true;
+    const row = document.createElement("div");
+    row.className = `message ${role === "user" ? "user" : "bot"}`;
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.innerHTML = role === "user" ? `<p>${esc(text)}</p>` : md(text);
+    row.appendChild(bubble);
+    list.appendChild(row);
+    scrollDown();
+    return row;
+  }
+
+  function showTyping() {
+    const row = document.createElement("div");
+    row.className = "message bot";
+    row.innerHTML = `<div class="bubble typing" aria-label="Sedang mengetik"><span></span><span></span><span></span></div>`;
+    list.appendChild(row); scrollDown();
+    return row;
+  }
+
+  /* ---------- AI ---------- */
+  async function askGemini() {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.MODEL}:generateContent`;
+    const contents = history.slice(-CONFIG.MAX_HISTORY).map(m => ({ role: m.role, parts: [{ text: m.text }] }));
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": CONFIG.API_KEY },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents,
+        generationConfig: { temperature: 0.7, maxOutputTokens: 800 }
+      })
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || `HTTP ${res.status}`);
+    }
+    const data = await res.json();
+    const text = data.candidates?.[0]?.content?.parts?.map(p => p.text).join("");
+    if (!text) throw new Error("Respons kosong dari AI");
+    return text;
+  }
+
+  async function getReply() {
+    if (!CONFIG.API_KEY) return localAnswer(history[history.length - 1].text);
+    try { return await askGemini(); }
+    catch (e) {
+      console.error(e);
+      return `${localAnswer(history[history.length - 1].text)}\n\n*(AI tidak dapat dihubungi: ${e.message}. Menampilkan jawaban offline.)*`;
+    }
+  }
+
+  /* ---------- kirim pesan ---------- */
+  async function send(text) {
+    text = text.trim();
+    if (!text || busy) return;
+    busy = true; sendBtn.disabled = true;
+    history.push({ role: "user", text });
+    addMessage("user", text);
+    input.value = ""; autosize();
+    const typing = showTyping();
+    const [reply] = await Promise.all([getReply(), new Promise(r => setTimeout(r, 400))]);
+    typing.remove();
+    history.push({ role: "model", text: reply });
+    addMessage("bot", reply);
+    save();
+    busy = false; sendBtn.disabled = false; input.focus();
+  }
+
+  /* ---------- UI ---------- */
+  function autosize() { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 140) + "px"; }
+
+  form.addEventListener("submit", e => { e.preventDefault(); send(input.value); });
+  input.addEventListener("input", autosize);
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(input.value); }
+  });
+  document.querySelectorAll(".intro-card").forEach(c => c.addEventListener("click", () => send(c.dataset.prompt)));
+
+  $("btn-clear-chat").addEventListener("click", () => {
+    if (history.length && !confirm("Hapus seluruh percakapan?")) return;
+    history = []; list.innerHTML = ""; welcome.hidden = false; save();
+  });
+
+  $("btn-export-chat").addEventListener("click", () => {
+    if (!history.length) return alert("Belum ada percakapan untuk diekspor.");
+    const txt = history.map(m => `${m.role === "user" ? "Kamu" : "Tutor"}: ${m.text}`).join("\n\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
+    a.download = "typing-tutor-chat.txt";
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  function setTheme(t) {
+    document.documentElement.dataset.theme = t;
+    $("btn-theme-toggle").textContent = t === "dark" ? "☀️" : "🌙";
+    try { localStorage.setItem(CONFIG.THEME_KEY, t); } catch (e) {}
+  }
+  $("btn-theme-toggle").addEventListener("click", () =>
+    setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+
+  /* ---------- init ---------- */
+  let theme = "dark";
+  try { theme = localStorage.getItem(CONFIG.THEME_KEY) || "dark"; } catch (e) {}
+  setTheme(theme);
+  $("footer-credits").textContent = CONFIG.API_KEY ? "Typing Tutor Chatbot • Didukung Google Gemini" : "Typing Tutor Chatbot • Mode offline";
+
+  try { history = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEY)) || []; } catch (e) { history = []; }
+  if (!Array.isArray(history)) history = [];
+  history.forEach(m => addMessage(m.role, m.text));
+  welcome.hidden = history.length > 0;
+  input.focus();
+})();
