@@ -1,69 +1,80 @@
+
 /**
  * ============================================================================
  * ADMIN CONFIGURATION FILE (config.js)
+ * Typing Tutor Chatbot - Nexus AI
  * ============================================================================
  */
 
 const BOT_CONFIG = {
+
     // ------------------------------------------------------------------------
     // 1. BRANDING & UI SETTINGS
     // ------------------------------------------------------------------------
-    botName: "Typing Tutor Chatbot",
+
+    botName: "Nexus AI",
     botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
+
     botAvatar: "🤖",
     userAvatar: "🧑‍💻",
+
     welcomeHeading: "Hello! How can I help you today?",
-    welcomeSubtext: "Select a starter prompt below or type your own question to begin.",
+    welcomeSubtext: "Ask me anything. I'm ready to help you!",
 
     introCards: [
         {
             icon: "📚",
             title: "Explain a Concept",
-            description: "Break down complex topics into simple, everyday terms.",
+            description: "Break down complex topics into simple terms.",
             prompt: "Can you explain how artificial intelligence works in simple terms?"
         },
         {
             icon: "⚡",
             title: "Check Knowledge Base",
-            description: "Ask questions about our custom internal documents.",
-            prompt: "What information do you have in your official knowledge base?"
+            description: "Ask questions about internal documents.",
+            prompt: "What information do you have in your knowledge base?"
         },
         {
             icon: "💡",
             title: "Brainstorm Ideas",
-            description: "Generate creative project ideas and structured outlines.",
+            description: "Generate creative ideas and project outlines.",
             prompt: "Give me 3 creative science fair project ideas involving robotics."
         },
         {
             icon: "🛠️",
             title: "Debug & Troubleshoot",
-            description: "Step-by-step assistance for solving technical problems.",
-            prompt: "How should I approach debugging a program that isn't working as expected?"
+            description: "Get step-by-step technical assistance.",
+            prompt: "Help me debug a program that isn't working correctly."
         }
     ],
 
     // ------------------------------------------------------------------------
-    // 2. SECURITY & ENDPOINT SETTINGS
+    // 2. SECURITY & API SETTINGS
     // ------------------------------------------------------------------------
-    // PROXY_URL forces the app to route requests through your Netlify backend
-    authMode: "PROXY_URL", 
-    // Replace this with your actual Netlify function URL once deployed
-    proxyEndpoint: "https://your-site.netlify.app/.netlify/functions/gemini-proxy", 
-    modelName: "gemini-3.5-flash-lite",
+
+    authMode: "PROXY_URL",
+
+    // Ganti dengan URL Netlify milik kamu setelah deploy.
+    proxyEndpoint: "https://your-site.netlify.app/.netlify/functions/gemini-proxy",
+
+    // Pastikan model ini tersedia pada Gemini API yang kamu gunakan.
+    modelName: "gemini-2.5-flash",
 
     // ------------------------------------------------------------------------
-    // 3. ADVANCED GENERATION PARAMETERS
+    // 3. GENERATION SETTINGS
     // ------------------------------------------------------------------------
+
     generationConfig: {
         temperature: 0.7,
         topP: 0.95,
         topK: 40,
-        maxOutputTokens: 1024,
+        maxOutputTokens: 1024
     },
 
     // ------------------------------------------------------------------------
     // 4. CONVERSATION MEMORY & RAG SETTINGS
     // ------------------------------------------------------------------------
+
     contextWindowLimit: 10,
 
     ragConfig: {
@@ -73,18 +84,83 @@ const BOT_CONFIG = {
     },
 
     // ------------------------------------------------------------------------
-    // 5. SYSTEM PROMPT & GUARDRAILS
+    // 5. SYSTEM PROMPT & AI INSTRUCTIONS
     // ------------------------------------------------------------------------
-    systemPrompt: `You are Nexus, a helpful, accurate, and friendly AI assistant created for a school project.
-Follow these core rules at all times:
-1. Tone & Style: Be clear, encouraging, concise, and structured. Use bullet points or bold text for readability.
-2. Grounded Answers: When "[REFERENCE DOCUMENTS]" are provided with the user's message, prioritize those facts above all else.
-3. Honesty: If you do not know the answer, state clearly what you know and do not fabricate facts.
-4. Safety: Refuse to generate harmful, inappropriate, or academic-dishonesty content.`,
 
-    ragInjectionTemplate: `Use the following [REFERENCE DOCUMENTS] to answer the user's question accurately. If the documents are not relevant to the question, rely on your general knowledge without mentioning the documents explicitly.`
+    systemPrompt: `
+You are Nexus, a helpful, intelligent, accurate, and friendly AI assistant.
+
+Your purpose is to help students learn, understand concepts, and solve problems.
+
+Follow these rules:
+
+1. LANGUAGE:
+   Respond in the same language used by the user.
+   Support Indonesian and English.
+
+2. TONE:
+   Be friendly, polite, clear, and encouraging.
+   Explain complicated topics in simple language.
+
+3. ACCURACY:
+   Always provide accurate information.
+   Never invent facts, references, or sources.
+   If you are unsure, explain your uncertainty.
+
+4. KNOWLEDGE BASE:
+   When [REFERENCE DOCUMENTS] are provided,
+   prioritize information from those documents.
+   Do not invent information that contradicts them.
+
+5. EDUCATION:
+   Help students understand concepts instead of
+   simply giving answers without explanations.
+
+6. FORMATTING:
+   Use headings, bullet points, and examples
+   when they improve readability.
+
+7. SAFETY:
+   Do not assist with harmful or dangerous activities.
+   Do not generate inappropriate content.
+
+8. CONVERSATION:
+   Remember the context of the current conversation.
+   Give relevant answers based on previous messages.
+
+9. HONESTY:
+   Do not claim to have accessed files, websites,
+   or databases unless they were actually provided.
+`,
+
+    // ------------------------------------------------------------------------
+    // 6. RAG INJECTION TEMPLATE
+    // ------------------------------------------------------------------------
+
+    ragInjectionTemplate: `
+Use the following [REFERENCE DOCUMENTS] to answer
+the user's question accurately.
+
+Instructions:
+- Prioritize relevant reference documents.
+- Do not invent information.
+- If the documents are irrelevant, answer using
+  your general knowledge.
+- Do not mention internal documents unnecessarily.
+`
 };
 
-Object.freeze(BOT_CONFIG);
+// ------------------------------------------------------------------------
+// 7. FREEZE CONFIGURATION
+// ------------------------------------------------------------------------
+
+Object.freeze(BOT_CONFIG.introCards);
 Object.freeze(BOT_CONFIG.generationConfig);
 Object.freeze(BOT_CONFIG.ragConfig);
+Object.freeze(BOT_CONFIG);
+
+
+        
+
+    
+    
