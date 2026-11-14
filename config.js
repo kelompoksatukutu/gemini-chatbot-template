@@ -15,7 +15,7 @@ const BOT_CONFIG = {
     botName: "Tyeping tutor chatbot",
     botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
 
-    botAvatar: "🤖",
+    botAvatar: "⌨️",
     userAvatar: "🧑‍💻",
 
     welcomeHeading: "Hello! How can I help you today?",
