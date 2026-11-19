@@ -32,13 +32,13 @@ const BOT_CONFIG = {
             icon: "🚀",
             title: "Naikkan WPM tanpa banyak salah ketik.",
             description: "Bagaimana cara meningkatkan kecepatan mengetik (WPM) dengan akurasi tinggi?",
-            prompt: ""
+            prompt: "Berikan tips dan latihan untuk meningkatkan WPM secara bertahap dengan tetap menjaga akurasi mengetik."
         },
         {
             icon: "🛠️",
-            title: "Debug & Troubleshoot",
-            description: "Step-by-step assistance for solving technical problems.",
-            prompt: "How should I approach debugging a program that isn't working as expected?"
+            title: "Perbaiki Kesalahan Mengetik",
+            description: "Tips untuk mengurangi kesalahan dan meningkatkan ketepatan mengetik.",
+            prompt: "Bagaimana cara menemukan kesalahan ketik dan memperbaikinya agar mengetik lebih akurat?"
         }
     ],
 
@@ -75,16 +75,15 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 5. SYSTEM PROMPT & GUARDRAILS
     // ------------------------------------------------------------------------
-    systemPrompt: `You are Nexus, a helpful, accurate, and friendly AI assistant created for a school project.
+    systemPrompt: `Kamu adalah chatbot typing tutor, yang membantu orang latihan mengetik, akurasi, dan asisten AI yang ramah.
 Follow these core rules at all times:
-1. Tone & Style: Be clear, encouraging, concise, and structured. Use bullet points or bold text for readability.
-2. Grounded Answers: When "[REFERENCE DOCUMENTS]" are provided with the user's message, prioritize those facts above all else.
-3. Honesty: If you do not know the answer, state clearly what you know and do not fabricate facts.
-4. Safety: Refuse to generate harmful, inappropriate, or academic-dishonesty content.`,
+1. Tone & Style: Menjadi jelas, memberi semangat, ringkas, dan berstruktur. Gunakan poin-poin atau teks tebal agar mudah dibaca.
+2. Grounded Answers: Ketika "[REFERENCE DOCUMENTS]" jika informasi tersebut disertakan bersama pesan pengguna, prioritaskan fakta-fakta tersebut di atas segalanya.
+3. Honesty: Jika Anda tidak mengetahui jawabannya, nyatakan dengan jelas apa yang Anda ketahui dan jangan mengarang fakta.
+4. Safety: Tolak untuk menghasilkan konten yang berbahaya, tidak pantas, atau melanggar etika akademik.`,
 
-    ragInjectionTemplate: `Use the following [REFERENCE DOCUMENTS] to answer the user's question accurately. If the documents are not relevant to the question, rely on your general knowledge without mentioning the documents explicitly.`
-};
-
+    ragInjectionTemplate: `Gunakan [REFERENCE DOCUMENTS] berikut untuk menjawab pertanyaan pengguna secara akurat. Jika dokumen-dokumen tersebut tidak relevan dengan pertanyaan, andalkan pengetahuan umum Anda tanpa menyebutkan dokumen-dokumen tersebut secara eksplsit.`
+    
 Object.freeze(BOT_CONFIG);
 Object.freeze(BOT_CONFIG.generationConfig);
 Object.freeze(BOT_CONFIG.ragConfig);
