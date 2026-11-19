@@ -7,7 +7,7 @@
 const KNOWLEDGE_BASE = [
     {
         id: "doc-01",
-        title: "About This Chatbot Template",
+        title: "tentang mochi si kucing mengetik",
         keywords: ["template", "creator", "author", "ramadhirra", "architecture", "project", "who made"],
         content: `This Gemini Chatbot Template was architected and created by Ramadhirra Azzahra Putri, S.T. It is designed as a clean, modular, industry-standard starter kit for students to build and deploy custom AI assistants.`
     },
