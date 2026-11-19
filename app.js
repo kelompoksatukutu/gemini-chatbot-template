@@ -4,7 +4,7 @@
  * ============================================================================
  */
 
-const STORAGE_KEY_THEME = "GEMINI_STUDENT_TEMPLATE_THEME";
+const STORAGE_KEY_THEME = "";
 const STORAGE_KEY_HISTORY = "GEMINI_CHAT_HISTORY";
 
 let conversationHistory = [];
