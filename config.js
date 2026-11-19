@@ -8,31 +8,31 @@ const BOT_CONFIG = {
     // ------------------------------------------------------------------------
     // 1. BRANDING & UI SETTINGS
     // ------------------------------------------------------------------------
-    botName: "Nexus AI Assistant",
+    botName: "Mochi, si Kucing Latihan Mengetik",
     botSubtitle: "Powered by Google Gemini • Custom Knowledge Base",
-    botAvatar: "🤖",
-    userAvatar: "🧑‍💻",
-    welcomeHeading: "Hello! How can I help you today?",
-    welcomeSubtext: "Select a starter prompt below or type your own question to begin.",
+    botAvatar: "🐱",
+    userAvatar: "👩",
+    welcomeHeading: "Meow, saya akan mengajarkan kalian cara mengetik",
+    welcomeSubtext: "Saya Mochi, saya suka melatih orang belajar mengetik.",
 
     introCards: [
         {
-            icon: "📚",
-            title: "Explain a Concept",
-            description: "Break down complex topics into simple, everyday terms.",
-            prompt: "Can you explain how artificial intelligence works in simple terms?"
+            icon: "🖐️",
+            title: "Posisi jari dan postur",
+            description: "Kenalan sama home row dan duduk tegak.",
+            prompt: "Jelaskan posisi jari yang benar untuk mengetik 10 jari dan postur duduk yang ideal."
         },
         {
-            icon: "⚡",
-            title: "Check Knowledge Base",
-            description: "Ask questions about our custom internal documents.",
-            prompt: "What information do you have in your official knowledge base?"
+            icon: "🎯",
+            title: "Latihan Mengetik",
+            description: "Teks latihan pas dengan levelmu.",
+            prompt: "Buatkan latihan mengetik untuk pemula, mulai dari home row."
         },
         {
-            icon: "💡",
-            title: "Brainstorm Ideas",
-            description: "Generate creative project ideas and structured outlines.",
-            prompt: "Give me 3 creative science fair project ideas involving robotics."
+            icon: "🚀",
+            title: "Naikkan WPM tanpa banyak salah ketik.",
+            description: "Bagaimana cara meningkatkan kecepatan mengetik (WPM) dengan akurasi tinggi?",
+            prompt: ""
         },
         {
             icon: "🛠️",
