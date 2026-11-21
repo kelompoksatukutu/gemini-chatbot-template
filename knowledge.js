@@ -21,7 +21,69 @@ const KNOWLEDGE_BASE = [
         id: "doc-03",
         title: "posis Jari Home Row",
         keywords: ["Home row", "posis jari", "jari", "asdf", "jkl", "dasar", "pemula", "mulai", "tangan"],
-        content: `Home row adalah baris tengah keyboard tempat jari beristirahat. Tangan kiri: A (kelingking), S (Manis), D (tengah), F (telunjuk). Tangan kanan: J
-];
+        content: `Home row adalah baris tengah keyboard tempat jari beristirahat. Tangan kiri: A (kelingking), S (Manis), D (tengah), F (telunjuk). Tangan kanan: J (telunujuk), K (tengah), L(manis), ; (kelingking). Kedua jempol berada di spasi. Huruf F dan J biasanya punya tonjolan kecil sebagai penanda agar jari bisa kembali ke posis tanpa melihat. Setelah menekan tombol lain, selalu kembali jari ke home row.
+    },
+        {
+        id: "doc-04",
+        title: "pembagian TUgas Jari Pada keyboard",
+        keywords: ["jari mana", "pembagian", "top row", "bottom row", "qwerty", "huruf", "tombol", "10 jari", "sepuluh jari", "touch tyeping"],
+        content: `Touch tyeping berarti mengetik 10 jari tanpa melihat keyboard. Baris atas (QWERTYUIOP) dan bawah (ZXCVBNM) di jangkau dengan menggerakan jari dari home row lalu kembali. Telunjuk memegang dua kolom (kiri : R, F, V, dan T, G, B; kanan: Y, H, N dan U, J, M). Keliking memegang Shift, Enter, dan tombol di tepi. GUnakan Shift di sisi berlawan dengan huruf yang dikapitalkan.
+     },
+        {
+        id: "doc-05",
+        title: "Postur dan Ergonomi",
+        keywords: ["postur", "duduk", "Ergonomi", "pegal", "sakit", "pergelangan", "punggung", "mata", "posis", "nyaman", "cedera"],
+        content: `Duduk tegak dengan punggung bersandar , kaki rata di lantai. Siku membentuk sudut 90 derajat. pergelangan tangan lurus dan melayang ringgan, janagan menekan tepi meja. Layar sejajar atau sedikit di bawah mata dengan jarak sekitar satu lengan. Istirahat 1-2 menit, rgangkan jari dan bahu. Jika nyeri terus menerus, hentikan latihan dan konsultasikan ke tenaga kesehatan.
+        
+     },  
+        {
+        id: "doc-06",
+        title: "Akurasi Lebih Penting dari Kecepatan",
+        keywords: ["akurasi", "kecepatan", "cepat", "lambat", "salah", "typo", "kesalahan", "teliti", "benar", "presisi"],
+        content: `Kecepatan adalah hasil dari akurasi yang konsisten. Mengetik cepat dengan banyak salah justru memperbaiki. Targetkan akurasi minimal 95% sebelum menaiki kecepatan. jika banayak salah, turunkan tempo sampai ketikan terasa bersih. Janagan terlalu sering menekan Backspace pada latihan; coba tetap lanjut lalu evaluasi kesalahan di akhir. 
+    
+    },
+        {
+        id: "doc-07",
+        title: "Cara menghitung WPM dan Akurasi",
+        keywords: ["wpm", "hitung", "`kecepatan mengetik", "kata permenit", "rumus", "skor", "hasil", "cek", "nilai", "persen", "akurasi"],
+        content: `WPM (Words per minute) = (jumlah karakter yang diketik / 5 ) / waktu dalam menit. Satu 'kata' standar dihitung 5 karakter termasuk spasi. Akurasi = (karakter benar / total karakter) x 100%. Contoh: 300 karakter dalam 2 menit = (300/5)/2 = 30 WPM. patokan kasar: pemula 15-25 WPM, menengah 30-50 WPM, mahir 60 WPM ke atas.
 
-Object.freeze(KNOWLEDGE_BASE);
+    },
+        {
+        id: "doc-08",
+        title: "Rencana Latihan Bertahap",
+        keywords: ["latihan", "rencana", "jadwal", "level", "tahap", "belajar", "program", "rutin", "target", "mingguan"],
+        content: `Tahap 1: home row saja (asdf jkl ;) sampai nyaman tanpa melihat. TAhap 2: tambah baris atas (e, r, u, i, 0) dan baris bawah. Tahap 3: kata dan kalimat pendek dengan tanda baca dasar. Tahap 4: huruf kapital dan angka. Tahap 5: paragraf panjang dan simbol. Latihan 10-15 menit setiap hari; kosisten lebih efektik dari pada sekali lama. Naik tahap jika akurasi sudah 95% atau lebih.
+
+     },
+        {
+        id: "doc-09",
+        title: "Ritme dan Kebiasaan Menetik yang Baik",
+        keywords: ["ritme", "irama", "kebiasaan", "tips", "lihat kyboard", "melihat", "kosisten", "rilrks", "tegang"],
+        content: `Ketik dengan ritme stabil, kembali ke F dan J dengan meraba tonjolanya. Rileks, jangan mengetik terlalu keras. baca kata berikutnya sedikit lebih awal dari yang sedang diketik. Hindari kebiasaan satu atau dua jari karena membatasi kecepatan jangaka panjang.
+
+     },
+        {
+        id: "doc-10",
+        title: "Masalah Umum dan Solusinya",
+        keywords: ["masalah", "sulit", "susah", "kesulitan", "tertukar", "kelingking", "lemah", "jari lemah", "bosan", "macet", "plateau", "stagnan"],
+        content: `Kelingking lemah : lakukan latihan khusus huruf A, Q, Z, P, dengan pelan. Huruf seing tertukar (misal 'ie' dan 'ei' ): ketik pasang itu berulah secara lambat. progres macet (plateau): ganti jenis teks, latih kata kata yang sering salah, dan istirahat cukup. Bosan: ganti materi, misalnya lirik, kutipan, atau cerita pendek buatan sediri.
+
+     },
+        {
+        id: "doc-11",
+        title: "Tanda Baca, Kapital, dan Angka",
+        keywords: ["tanda baca", "koma", "titik", "kapital", "hurf besar", "shift", "angka", "simbol", "karakter khusus", "enter", "spasi"],
+        content: `Koma dan titik dijangkau jari tengah dan tangan kanan. Spasi ditekan dengan jempol. Untuk huruf kapital, tahan Shif dengan kelingking sisi berlawanan. Angka di baris atas dijangkau dengan menggerakan jari dari home row ke atas, lalu kembali. Latihan angka dan simbol secara terpisah dalam sesi pendek sebleum dicampur ke dalam kalimat.
+
+     },
+        {
+        id: "doc-12",
+        title: "Memilihh Teks Ltihan Sesuai Level",
+        keywords: ["teks latihan", "contoh", "kalimat", "kata", "paragraf", "bahan", "materi", "soal", "kasih", "berkaitan"],
+        content: `Pemula: 'asdf jkl; fall dad ask sad lad'. menengah: kalimat pendek 'kucing kecil itu tidur di atas bantal.' Mshir: paragraf dengan koma, titik, angka, dan huruf kapital. pilih teks yang bermakna dantidak terlalu sulit; ulangi teks yang sama 2-3 kali sampai akurasi naik sebelum ganti teks.       
+         }
+    ];
+
+     Object.freeze(KNOWLEDGE_BASE);
