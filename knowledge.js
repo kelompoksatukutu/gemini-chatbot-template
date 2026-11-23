@@ -51,7 +51,7 @@ const KNOWLEDGE_BASE = [
 
     },
         {
-        id: "doc-08",
+        id: "doc-08", 
         title: "Rencana Latihan Bertahap",
         keywords: ["latihan", "rencana", "jadwal", "level", "tahap", "belajar", "program", "rutin", "target", "mingguan"],
         content: `Tahap 1: home row saja (asdf jkl ;) sampai nyaman tanpa melihat. TAhap 2: tambah baris atas (e, r, u, i, 0) dan baris bawah. Tahap 3: kata dan kalimat pendek dengan tanda baca dasar. Tahap 4: huruf kapital dan angka. Tahap 5: paragraf panjang dan simbol. Latihan 10-15 menit setiap hari; kosisten lebih efektik dari pada sekali lama. Naik tahap jika akurasi sudah 95% atau lebih.
