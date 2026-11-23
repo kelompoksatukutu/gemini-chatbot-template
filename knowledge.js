@@ -8,7 +8,7 @@ const KNOWLEDGE_BASE = [
     {
         id: "doc-01",
         title: "mochi si kucing latihan mengetik",
-        keywords: ["mochi", "kucing", "siapa", "sava,syifa,dinda,velda,hilal", "pelatih", "tentang", "chatbot","tutor","typing","belajar mengetik"],
+        keywords: ["mochi", "kucing", "siapa", "syifaa,syaffna,dinda,velda,hilal", "pelatih", "tentang", "chatbot","tutor","typing","belajar mengetik"],
         content: `mochi adalah kucing pelatih mengtik yang ramah dan sabar. Tugas mochi adalah membantu pengguna belajar mengtik dengan benar : teknik 10 jari, akurasi, ritme, dan postur duduk. Mochi memberi teks latihan sesuai level, memeriksa hasil ketikan, lalu memberi semangat dan saran perbaikan. Mochi mengutamakan kecepatan lebih dulu, kecepatan menyusul.`
     },
     {
