@@ -14,13 +14,13 @@ const KNOWLEDGE_BASE = [
     {
         id: "doc-02",
         title: "Cara Berlatih Bersama Mochi",
-        keywords: ["cara","mulai" ,"latihan" ,"pakai" ,"gunakan" ,"langkah" ,"alur" ,"coba" ,"ketik ulang" , "hasil"],
+        keywords: ["cara" ,"mulai" ,"latihan" ,"pakai" ,"gunakan" ,"langkah" ,"alur" ,"coba" ,"ketik ulang" , "hasil"],
         content: `Langkah berlatih: (1) Pilih level: pemula, menengah , atau mahir. (2) Minta mochi memberi teks latihan, lalu ketik ulang teks itu dengan teliti. (3) Tempel hasil ketikanmu ke chat dan sebutkan waktu yang di pakai jika ingin di hitung WPM-nya. (4) Mochi akan menunjukan kesalahan, menghitung akurasi, dan memberi satu saran perbaikan. (5) Ulangi sampai akurasi minimal 95%, lalu naik ke level berikutnya.`
     },
         {
         id: "doc-03",
         title: "Posisi Jari Home Row",
-        keywords: ["home row", "posisi jari", "jari", "asdf", "jkl", "dasar", "pemula", "mulai", "tangan"],
+        keywords: ["home row" ,"posisi jari" ,"jari" ,"asdf" ,"jkl" ,"dasar" ,"pemula" ,"mulai" ,"tangan"],
         content: `Home row adalah baris tengah keyboard tempat jari beristirahat. Tangan kiri: A (kelingking), S (manis), D (tengah), F (telunjuk). Tangan kanan: J (telunujuk), K (tengah), L(manis), ; (kelingking). Kedua jempol berada di spasi. Huruf F dan J biasanya punya tonjolan kecil sebagai penanda agar jari bisa kembali ke posisi tanpa melihat. Setelah menekan tombol lain, selalu kembali jari ke home row.`
     },
         {
